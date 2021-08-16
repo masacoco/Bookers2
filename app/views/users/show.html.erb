@@ -1,0 +1,15 @@
+<div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %></h3>
+</div>
+
+
+
+<% @books.each do |book| %>
+<div>
+  <%= link_to book_path(book.id) do %>
+  <% end %>
+  <p>投稿ユーザー画像：</p>
+  <p>name：<%= user.name %></p>
+  <p>Opinion：<%= user.body %></p>
+</div>
+<% end %>
