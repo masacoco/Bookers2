@@ -5,9 +5,17 @@
     <%= render "books/new_book", book: @new_book %>
   </div>
   <div class="col-md-8 offset-md-1">
-    <%= render "books/book_table", book: @book %>
-    <%= render 'book_comments/index', book: @book,book_comment: @book_comment%>
+    <div class="comment_table">
+      <%= render "books/book_table", book: @book %>
+    </div>
+    <div class="detail_table">
+      <%= render "book_comments/index", book: @book %>
+    </div>
+    <%= form_with model:[@book,@book_comment] do |f| %>
+      <%= f.text_area :comment, size:"90x5", id:"comment_textarea" %><br>
+      <%= f.submit '送信'%>
+    <% end %>
   </div>
-  
- 
-  
+
+
+
