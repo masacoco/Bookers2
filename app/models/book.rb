@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :user, optional: true
   has_many :favorites, dependent: :destroy
+  has_many :favorited_books, through: :favorites, source: :book
 	has_many :book_comments, dependent: :destroy
 
   validates :title, presence: true
@@ -21,4 +22,5 @@ class Book < ApplicationRecord
       Book.where('title LIKE ?', '%'+content+'%')
     end
   end
+
  end
