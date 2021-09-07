@@ -30,6 +30,13 @@ before_action :ensure_correct_user, only: [:edit, :update]
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "See you!!!"
+    redirect_to root_path
+  end
+
   private
 
   def user_add_params
