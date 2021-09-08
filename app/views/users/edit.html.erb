@@ -15,22 +15,21 @@
         <%= f.label :introduction, "Introduction" %>
         <%= f.text_area :introduction, class: "form-control" %>
       </div>
-
-      <div class="card" style="width: 18rem;">
-        <div class="card-header">
-          <h5><strong>Cancel my account</strong></h5>
-      </div>
-      <div class="card-body">
-        <h6 class="card-title">Unhappy?</h6>
-        <br/>
-        <a><%= button_to "Cancel my account", users_path(@user_id), data: { confirm: "Are you sure?" }, method: :delete %></a>
-       </div>
-      </div>
-      <br/>
-
       <div class="form-group">
         <%= f.submit "Update User", class: "btn btn-secondary" %>
       </div>
     <% end %>
   </div>
 </div>
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto" >
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+          <h5><strong>Cancel my account</strong></h5>
+      </div>
+    <div class="card-body">
+        <h6 class="card-title">Unhappy?</h6>
+        <br/>
+        <a><%= button_to "Cancel my account", users_path(@user_id), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %></a>
+    </div>
+    </div>
+  </div>

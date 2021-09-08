@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'searches/search'
   root "homes#top"
   get "home/about" => "homes#about"
+  get 'searches/search'
+  get '/search', to: 'searches#search'
+  
   devise_for :users
 
 
@@ -16,9 +18,10 @@ Rails.application.routes.draw do
   	get 'followers' => 'relationships#followers', as: 'followers'
   end
 
-
-  get '/search', to: 'searches#search'
-
   delete "users/:id", to: "users#destroy"
+
+  get 'chat/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
+
 
 end
