@@ -4,6 +4,8 @@ class Book < ApplicationRecord
   has_many :favorited_books, through: :favorites, source: :book
 	has_many :book_comments, dependent: :destroy
 
+
+  acts_as_punchable
   validates :title, presence: true
   validates :body, presence: true, length: { maximum: 200}
 
