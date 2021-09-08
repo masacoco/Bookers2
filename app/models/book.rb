@@ -3,6 +3,10 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_books, through: :favorites, source: :book
 	has_many :book_comments, dependent: :destroy
+	scope :created_today, -> { where(created_at: Time.zone.now.all_day) } # 今日
+  scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) } # 前日
+  scope :created_this_week, -> { where(created_at: Time.current.all_week) } #今週
+  scope :created_last_week, -> { where(created_at: Time.current.last_week.all_week) } #先週
 
 
   acts_as_punchable

@@ -14,6 +14,10 @@ before_action :ensure_correct_user, only: [:edit, :update]
     @books = @user
     @book = Book.new
     @books = Book.all
+    @today_book = @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @thisweek_book = @books.created_this_week
+    @lastweek_book = @books.created_last_week
   end
 
   def edit
